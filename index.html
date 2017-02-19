@@ -1,0 +1,68 @@
+---
+layout: default
+cover_image: "/img/lu.jpg"
+---
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-9">
+            <div class="row">
+                <ul class="bsk-post-list">
+                    {% for post in paginator.posts %}
+                    <li>
+                        <a href="{{ post.url | relative_url }}">
+                            <div class="bsk-post-item">
+                                <h2 class="bsk-title">{{ post.title | escape }}</h2>
+                                <h4><span class="bsk-tag">tags</span></h4>
+                                <h6>{{ post.date | date: "%b %-d, %Y" }}</h6>
+                                <div class="bsk-post-preview">
+                                    文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要文章摘要
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <a href="{{paginator.previous_page_path}}">上一页</a>
+                </div>
+                <div class="col-xs-6">
+                    <a href="{{paginator.next_page_path}}">下一页</a>
+                </div>
+            </div>
+            <div class="row">
+                {% for p in (1..paginator.total_pages) %}
+                <div class="col-xs-1">
+                    {% if p != paginator.page%}
+                        {% if p != 1 %}
+                        <a href="{{ site.url }}/page{{p}}">{{p}}</a>
+                        {% else %}
+                        <a href="{{ site.url }}">{{p}}</a>
+                        {% endif %}
+                    {% else %}
+                    {{p}}
+                    {% endif %}
+                </div>
+
+                {% endfor %}
+                </div>
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+            <div class="row">
+                <img src="{{site.url}}/img/BlueSky.png" class="bsk-logo"/>
+            </div>
+            <div class="row" style="-webkit-filter: drop-shadow(rgb(0, 204, 153) 0px 0px);
+filter: drop-shadow(rgb(0, 204, 153) 0px 0px);">
+                <img src="{{site.url}}/img/github.svg" class="bsk-icon"/>
+                <img src="{{site.url}}/img/bilibili.svg" class="bsk-icon"/>
+                <img src="{{site.url}}/img/weibo.svg" class="bsk-icon"/>
+                <img src="{{site.url}}/img/CSDN.svg" class="bsk-icon"/>
+                <img src="{{site.url}}/img/git-oschina.svg" class="bsk-icon"/>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+<div class="bgdiv"  style = "{% if page.cover_image %} background-image: url({{ page.cover_image }});{% endif %} {% if page.cover_color %} background-color: {{ page.cover_color }};{% endif %}" >
+</div>
+<div id="header-cover" class="container-fluid ">
+    <div class="header-title">
+        <div class="row ">
+            <div class="col-xs-12 col-sm-7 header-bar">
+                <div class="col-xs-11">
+                    <h4><a href = "{{ site.homepage }}">&nbsp;&nbsp;劉</a>&nbsp;&nbsp;&nbsp;<a href = "{{ site.url }}"><span class="glyphicon glyphicon-home"></span></a></h4>
+                </div>
+                <div class="col-xs-1 visible-xs ">
+                    <div id="menu-button" class="pull-right">
+                        <a href="#"><span class="glyphicon glyphicon-list" id="menu-button-icon"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+                <div class="row header-menu">
+                    <ul>
+                        <li class="col-xs-12 col-sm-4">
+                            <a href="#" class="menuitem"><span class="glyphicon glyphicon-pencil"></span>&nbsp;分类</a>
+                        </li>
+                        <li class="col-xs-12 col-sm-4">
+                            <a href="#" class="menuitem"><span class="glyphicon glyphicon-tags"></span>&nbsp;标签</a>
+                        </li>
+                        <li class="col-xs-12 col-sm-4">
+                            <a href="#" class="menuitem"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;关于</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid header-cover-title">
+        <p>
+            <h1>
+                {% if page.title %}
+                    {{page.title}}
+                {% else %}
+                    {{site.title}}
+                {% endif %}
+            </h1>
+            <h5>
+                {% if page.subtitle %}
+                    {{page.subtitle}}
+                {% elsif site.subtitle %}
+                    {{site.subtitle}}
+                {% endif %}
+            </h5>
+        </p>
+    </div>
+</div>
