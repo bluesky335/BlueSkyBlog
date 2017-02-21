@@ -24,7 +24,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 homepage: "http://www.liuwanlin.tk"
 
-github_username:  jekyll
+github_username:  bluesky335
 paginate: 5
 # Build settings
 markdown: kramdown
