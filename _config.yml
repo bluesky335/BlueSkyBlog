@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: BSK's blog
+title: BlueSky's blog
 subtitle: 这里是刘万林的博客
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
@@ -22,12 +22,20 @@ description: > # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-homepage: "http://blog.liuwanlin.tk/"
+homepage: "http://www.liuwanlin.tk/"
+blog_homepage: "http://blog.liuwanlin.tk/"
 
-github_username:  bluesky335
+
+github_address: "https://github.com/bluesky335/"
+bilibili_address: "http://space.bilibili.com/4200969/#!/"
+weibo_address: "http://weibo.com/bluesky335/"
+csdn_address: "http://blog.csdn.net/l947818238"
+git_os_china_address: "http://git.oschina.net/BlueSky335"
+
 paginate: 5
 # Build settings
 markdown: kramdown
+highlighter: rouge
 #theme: minima
 gems:
   - jekyll-feed

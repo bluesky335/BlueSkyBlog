@@ -16,8 +16,8 @@ $(document).ready(function() {
     $(window).resize(function() {
         winWidth = $(window).width();
         var coverHeight = winWidth * (9.0 / 16.0);
-        if(coverHeight > 400) {
-            coverHeight = 400;
+        if(coverHeight > 500) {
+            coverHeight = 500;
             $(".bgdiv").css({
                 "background-position-y": (winWidth * (9.0 / 16.0) - 400) / 2 * -1
             });
