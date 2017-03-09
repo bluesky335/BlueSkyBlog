@@ -2,7 +2,8 @@
 layout: default
 ---
 {{ content }}
-
+<h3 style="text-align:center;color:#aaa;">-------  The End  -------</h3>
+<br />
 <!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{site.url}}{{ page.url }}"></div>
 <!-- 多说评论框 end -->
@@ -19,3 +20,19 @@ var duoshuoQuery = {short_name:"liuwanlin"};
 	})();
 	</script>
 <!-- 多说公共JS代码 end -->
+<!-- 多说样式 -->
+<style>
+#ds-thread{
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+#ds-reset{
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#ds-thread #ds-reset .ds-highlight{color: #1E90FF !important;}
+</style>
