@@ -20,7 +20,7 @@ cover_Color 封面颜色形式为“#FF00FF”（仅在没有封面图片时生�
                                 {% if post.sub_title %}
                                 <h3 style="margin-top:0px;margin-bottom:20px;">{{ post.sub_title | escape }}</h3>
                                 {% endif %}
-                                <h5>分类:
+                                <h5 style="line-height: 30px;">分类:
                                     {% for categorie in post.categories%}
                                         <span class="bsk-tag"><span class="glyphicon glyphicon-paperclip"></span> {{categorie}} </span> &nbsp;
                                     {% endfor %}
