@@ -1,0 +1,13 @@
+---
+---
+[
+{% for post in site.posts %}
+  {"title":"{{post.title}}",
+  {% if post.sub_title %}
+  "subtitle":"{{ post.sub_title | escape }}",
+  {% endif %}
+  "url":"{{site.url}}{{post.url}}",
+  "date":"{{ post.date | date:'%Y-%m-%d' }}",
+  "categories":[{% for categorie in post.categories %}"{{categorie}}"{% if forloop.last == false %} ,{% endif %}{% endfor %}]}
+  {% if forloop.last == false %},{% endif %}{% endfor %}
+]

@@ -3,6 +3,7 @@ var blurTimer = null;
 var blur = 80;
 var targetB = 0;
 var winWidth = 0;
+
 $(document).ready(function() {
     $("body").click(function(event) {
         if(menuisopen) {
@@ -14,15 +15,9 @@ $(document).ready(function() {
         return false;
     });
     $(window).resize(function() {
+
         winWidth = $(window).width();
-        var coverHeight = winWidth * (9.0 / 16.0);
-        if(coverHeight > 500) {
-            coverHeight = 500;
-            $(".bgdiv").css({
-                "background-position-y": (winWidth * (9.0 / 16.0) - 400) / 2 * -1
-            });
-        }
-        $("#header-cover,.bgdiv").css('height', coverHeight);
+        setBgDiv();
         if(winWidth >= 768) {
             if(menuisopen) {
                 openMenu(); //如果菜单没关闭，则关闭菜单
@@ -36,6 +31,21 @@ $(document).ready(function() {
     });
     $(window).resize();
 });
+
+function setBgDiv(){
+    var coverHeight = winWidth * (9.0 / 16.0);
+    if(coverHeight > 500) {
+        coverHeight = 500;
+    }
+
+       if(coverHeight / winWidth < 9.0 / 16.0) {
+           var imagepositiony = (winWidth*1.1 * (9.0 / 16.0) - coverHeight) / 2.0 * -1;
+           $(".bgdiv").css({ "background-size": "110% auto", "background-position-y": imagepositiony,"background-position-x": 0});
+       } else {
+           $(".bgdiv").css({ "background-size": "auto 110%", "background-position-x": 0,"background-position-y": 0});
+       }
+       $("#header-cover,.bgdiv").css('height', coverHeight);
+}
 
 function openMenu() {
     if(!menuisopen) {

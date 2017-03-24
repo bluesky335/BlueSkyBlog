@@ -1,0 +1,111 @@
+---
+title: 根据标签来筛选文章
+sub_title: 所有标签都在这里啦 ~\(≧▽≦)/~
+layout: default
+cover_image: "https://raw.githubusercontent.com/bluesky335/bluesky335.github.io/master/images/1.jpeg"
+cover_filter: 90
+---
+<div class="">
+    <button id="allTagButton" class ="tagButton tagButton-selected" onclick="loadPostWithTag(null)">&nbsp;全部&nbsp;</button>
+    {% for tag in site.tags %}
+        <button class="tagButton" bskTagName="{{tag[0]}}" onclick="loadPostWithTag('{{tag[0]}}')"><span class="glyphicon glyphicon-tag"></span>&nbsp;{{tag[0]}}</button>
+    {% endfor %}
+</div>
+<hr />
+<div >
+    <ul id="postList" class="bsk-post-list">
+    加载中.....
+    </ul>
+</div>
+<div style="text-align:center;">
+    <button class="tagLoadMoreButton" id="nextPageButton" onclick="loadNextPage()">加载更多</button>
+</div>
+<br />
+<br />
+<script>
+var curentTag = null;
+var curentIndex = 0;
+var pageCount = 20;
+var loadedCount = 0;
+var datasource = null;
+
+$(document).ready(function() {
+    $.getJSON('/tagsData.json', function(jsonData, textStatus) {
+        $("#postList").empty();
+        datasource = jsonData;
+        loadNextPage();
+    });
+});
+
+function loadNextPage(){
+
+    for (curentIndex; curentIndex < datasource.length&&loadedCount != pageCount ; curentIndex++) {
+        if(apendWithObject(datasource[curentIndex])){
+            loadedCount+=1;
+        }
+    }
+    loadedCount = 0;
+    if (curentIndex == datasource.length) {
+        $("#nextPageButton").css('display', 'none');
+    }
+}
+
+function apendWithObject(obj){
+    var apendingText = "";
+    var title = obj['title'];
+    var date = obj['date'];
+    var url = obj['url'];
+    var tags = obj['tags'];
+    var tagsStr = "";
+    for (var i = 0; i < tags.length; i++) {
+        tagsStr = tagsStr+ '<span class="bsk-tag"><span class="glyphicon glyphicon-tag"></span> '+tags[i]+' </span> &nbsp;';
+    }
+    if (!curentTag||(obj["tags"].indexOf(curentTag)!=-1)) {
+        if (obj.hasOwnProperty("subtitle")) {
+            var subtitle = obj['subtitle'];
+            apendingText = '<li>\
+             <a href="'+url+'">\
+                    <div class="bsk-post-item bg">\
+                        <h2 class="bsk-title">'+title+'</h2>\
+                        <h3 style="margin-top:0px;margin-bottom:20px;">'+subtitle+'</h3>\
+                        <h6>'+tagsStr+'</h6>\
+                        <h6>'+date+'</h6>\
+                    </div>\
+                </a>\
+            </li>';
+        }else {
+            apendingText = '<li>\
+             <a href="'+url+'">\
+                    <div class="bsk-post-item bg">\
+                        <h2 class="bsk-title">'+title+'</h2>\
+                        <h6>'+tagsStr+'</h6>\
+                        <h6>'+date+'</h6>\
+                    </div>\
+                </a>\
+            </li>';
+        }
+        $("#postList").append(apendingText);
+        return true;
+    }
+    return false;
+}
+
+function loadPostWithTag(tag){
+    curentIndex = 0;
+    curentTag = tag;
+    $(".tagButton").attr('class', 'tagButton');
+    if (curentTag!=null) {
+        $("[bskTagName]").each(function(index, el) {
+            if($(this).attr('bskTagName') === curentTag ){
+                $(this).attr('class', 'tagButton tagButton-selected');
+            }
+        });;
+    }else {
+        $("#allTagButton").attr('class', 'tagButton tagButton-selected');
+    }
+    $("#postList").empty();
+        $("#nextPageButton").css('display', 'block');
+    loadNextPage();
+}
+
+</script>

@@ -1,11 +1,25 @@
-<div class="bgdiv"  style = "{% if page.cover_image %} background-image: url({{ page.cover_image }});{% endif %} {% if page.cover_color %} background-color: {{ page.cover_color }};{% endif %}" >
+<div class="bgdiv"  style = "
+{% if page.cover_image %}
+    background-image: url({{ page.cover_image }});
+{% endif %}
+{% if page.cover_color %}
+    background-color:{{ page.cover_color }};
+{% endif %}
+
+{% if page.cover_filter %}
+    filter: brightness({{page.cover_filter}}%);
+    -webkit-filter: brightness({{page.cover_filter}}%);
+    -moz-filter: brightness({{page.cover_filter}}%);
+    -ms-filter: brightness({{page.cover_filter}}%);
+{% endif %}
+" >
 </div>
 <div id="header-cover" class="container-fluid ">
     <div class="header-title">
         <div class="row ">
             <div class="col-xs-12 col-sm-7 header-bar">
                 <div class="col-xs-11">
-                    <h4><a href = "{{ site.homepage }}">&nbsp;&nbsp;劉</a>&nbsp;&nbsp;&nbsp;<a href = "{{ site.blog_homepage }}"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></h4>
+                    <h4><a href = "{{ site.homepage }}">&nbsp;&nbsp;主站&nbsp;</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href = "/index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></h4>
                 </div>
                 <div class="col-xs-1 visible-xs ">
                     <div id="menu-button" class="pull-right">
@@ -17,13 +31,13 @@
                 <div class="row header-menu">
                     <ul>
                         <li class="col-xs-12 col-sm-4">
-                            <a href="#" class="menuitem"><span class="glyphicon glyphicon-pencil"></span>&nbsp;分类</a>
+                            <a href="/categories.html" class="menuitem"><span class="glyphicon glyphicon-pencil"></span>&nbsp;分类</a>
                         </li>
                         <li class="col-xs-12 col-sm-4">
-                            <a href="#" class="menuitem"><span class="glyphicon glyphicon-tags"></span>&nbsp;标签</a>
+                            <a href="/tags.html" class="menuitem"><span class="glyphicon glyphicon-tags"></span>&nbsp;标签</a>
                         </li>
                         <li class="col-xs-12 col-sm-4">
-                            <a href="#" class="menuitem"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;关于</a>
+                            <a href="/about" class="menuitem"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;关于</a>
                         </li>
 
                     </ul>
@@ -41,10 +55,10 @@
                 {% endif %}
             </h1>
             <h4>
-                {% if page.subtitle %}
-                    {{page.subtitle}}
-                {% elsif site.subtitle %}
-                    {{site.subtitle}}
+                {% if page.sub_title %}
+                    {{page.sub_title}}
+                {% elsif site.sub_title %}
+                    {{site.sub_title}}
                 {% endif %}
             </h4>
         </p>

@@ -4,35 +4,13 @@ layout: default
 {{ content }}
 <h3 style="text-align:center;color:#aaa;">-------  The End  -------</h3>
 <br />
-<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{site.url}}{{ page.url }}"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"liuwanlin"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0]
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
-<!-- 多说样式 -->
-<style>
-#ds-thread{
-    background-color: #ddd;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-#ds-reset{
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #fff;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-#ds-thread #ds-reset .ds-highlight{color: #1E90FF !important;}
-</style>
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href,
+    sourceId: "",
+    productKey: "675da27155c74f2e84e39a84bd56ac9e",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>

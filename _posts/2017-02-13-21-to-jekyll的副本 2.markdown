@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "标签3  Welcome to Jekyll!"
+sub_title: "副标题233333"
 date:   2017-02-08 20:18:16 +0800
 categories: jekyll update
+tag: [标签3]
 cover_image: "http://i1.hdslb.com/bfs/archive/11913a64887e4c515b45d5f83be246f833769a37.jpg"
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
