@@ -10,6 +10,12 @@ $(document).ready(function() {
             openMenu(); //如果菜单没关闭，则关闭菜单
         }
     });
+    $("#header-cover").mouseenter(function(event) {
+        $(".bgdiv").css('background-size', '110%');
+    });
+    $("#header-cover").mouseleave(function(event) {
+        $(".bgdiv").css('background-size', '100%');
+    });
     $("#menu-button").click(function(event) {
         openMenu();
         return false;
@@ -47,14 +53,7 @@ function setBgDiv(){
     if(coverHeight > 500) {
         coverHeight = 500;
     }
-
-       if(coverHeight / winWidth < 9.0 / 16.0) {
-           var imagepositiony = (winWidth*1.1 * (9.0 / 16.0) - coverHeight) / 2.0 * -1;
-           $(".bgdiv").css({ "background-size": "110% auto", "background-position-y": imagepositiony,"background-position-x": 0});
-       } else {
-           $(".bgdiv").css({ "background-size": "auto 110%", "background-position-x": 0,"background-position-y": 0});
-       }
-       $("#header-cover,.bgdiv").css('height', coverHeight);
+  $("#header-cover,.bgdiv").css('height', coverHeight);
 }
 
 function openMenu() {

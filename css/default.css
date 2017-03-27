@@ -101,12 +101,13 @@ pre{
 }
 
 .bgdiv {
-    transition: filter 0.5s;
-    -moz-transition: -moz-filter 0.5s;
+    background-position:center;
+    transition: filter 0.5s,background-size 0.5s;
+    -moz-transition: -moz-filter 0.5s,background-size 0.5s;
     /* Firefox 4 */
-    -webkit-transition: -webkit-filter 0.5s;
+    -webkit-transition: -webkit-filter 0.5s,background-size 0.5s;
     /* Safari 和 Chrome */
-    -o-transition: -o-filter 0.5s;
+    -o-transition: -o-filter 0.5s,background-size 0.5s;
     background-color: black;
     position: absolute;
     width: 100%;

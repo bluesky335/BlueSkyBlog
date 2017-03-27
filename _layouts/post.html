@@ -3,19 +3,29 @@ layout: default
 ---
 <h5 style="text-align:center;color:#aaa;line-height:30px;font-weight:300;">
     <div class="bsk-left-block">
-    {{ page.date | date: "%Y - %-m - %-d" }} | 分类:
+        <div class="bsk-left-block">
+            {{ page.date | date: "%Y - %-m - %-d" }}
+        </div>
+        <div class="clearfix visible-xs" ></div>
+        <div class="bsk-left-block">
+            &nbsp;分类:
+        </div>
+        {% for categorie in page.categories%}
+            <span class="bsk-tag"><span class="glyphicon glyphicon-paperclip"></span> {{categorie}} </span> &nbsp;
+        {% endfor %}
     </div>
-    {% for categorie in page.categories%}
-        <span class="bsk-tag"><span class="glyphicon glyphicon-paperclip"></span> {{categorie}} </span> &nbsp;
-    {% endfor %}
-    <div class="bsk-left-block">
-        &nbsp;标签:
-    </div>
-    {% for tag in page.tags%}
-     <span class="bsk-tag"><span class="glyphicon glyphicon-tag"></span> {{tag}} </span> &nbsp;
-    {% endfor %}
 
+    <div class="bsk-left-block">
+        <div class="bsk-left-block">
+            &nbsp;标签:
+        </div>
+        {% for tag in page.tags%}
+         <span class="bsk-tag"><span class="glyphicon glyphicon-tag"></span> {{tag}} </span> &nbsp;
+        {% endfor %}
+    </div>
 </h5>
+<div class="clearfix"></div>
+<hr/>
 {{ content }}
 <div style="text-align:center;color:#aaa;">-------  The End  -------</div>
 <br />
