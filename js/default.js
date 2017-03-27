@@ -28,6 +28,16 @@ $(document).ready(function() {
         }else {
             $(".menuitem-l").css('opacity', '0').attr('class', 'menuitem');
         }
+        if (winWidth<=410) {
+            $("h1").css("font-size","25px");
+            $("h4").css("font-size","15px");
+            $("h5").css("font-size","13px");
+        }else {
+
+                $("h1").css("font-size","");
+                $("h4").css("font-size","");
+                $("h5").css("font-size","");
+        }
     });
     $(window).resize();
 });

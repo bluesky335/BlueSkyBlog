@@ -154,7 +154,9 @@ pre{
     text-align: center;
     padding: 10px;
 }
-
+.bsk-post-preview{
+    font-size: 14px;
+}
 .bsk-post-list {
     padding-left: 20px;
     padding-right: 20px;
@@ -170,12 +172,14 @@ pre{
     color: black ;
 }
 .bsk-tag{
+    display: block;
+    float: left;
+    margin-left: 5px;
     background-color: rgba(234, 233, 233, 0.91);
     border-radius: 5px;
     line-height: 15px;
     padding: 5px;
-    font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .bsk-post-item {
@@ -348,4 +352,9 @@ border-radius: 10px;
     border: 1px solid #999;
     background-color: #fdfdfd;
     border-radius: 10px;
+}
+
+.bsk-left-block{
+    display: block;
+    float: left;
 }
