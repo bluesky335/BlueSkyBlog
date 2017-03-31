@@ -152,8 +152,12 @@ pre{
 }
 
 .footer {
+    margin-top: 20px;
     text-align: center;
     padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background-color: #f5f5f5;
 }
 .bsk-post-preview{
     font-size: 14px;
@@ -175,6 +179,7 @@ pre{
 .bsk-tag{
     display: block;
     float: left;
+    color: #555;
     margin-left: 5px;
     background-color: rgba(234, 233, 233, 0.91);
     border-radius: 5px;
