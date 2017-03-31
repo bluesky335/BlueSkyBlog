@@ -27,8 +27,25 @@ layout: default
 <div class="clearfix"></div>
 <hr/>
 {{ content }}
-<div style="text-align:center;color:#aaa;">-------  The End  -------</div>
+<div style="text-align:center;color:#aaa;font-size:20px;">-------  The End  -------</div>
 <br />
+<div>
+{% if page.next %}
+    <h4>上一篇：<a href="{{page.next.url}}">{{page.next.title}}&nbsp;&nbsp;
+        {%if page.next.sub_title %}
+        <span style="font-size:16px;font-weight:300;"> {{page.next.sub_title}} </span>
+        {% endif %}
+     </a></h4>
+{% endif %}
+{% if page.previous %}
+    <h4>下一篇：<a href="{{page.previous.url}}">{{page.previous.title}}&nbsp;&nbsp;
+        {%if page.previous.sub_title %}
+            <span style="font-size:16px;font-weight:300;">{{page.previous.sub_title}}</span>
+        {% endif %}
+    </a></h4>
+{% endif %}
+
+ </div>
 <!-- 评论 BEGIN -->
 <!-- 网易云跟帖 -->
 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>

@@ -11,7 +11,7 @@ $(document).ready(function() {
         }
     });
     $("#header-cover").mouseenter(function(event) {
-        $(".bgdiv").css('background-size', '110%');
+        $(".bgdiv").css('background-size', '103%');
     });
     $("#header-cover").mouseleave(function(event) {
         $(".bgdiv").css('background-size', '100%');
