@@ -1,0 +1,30 @@
+---
+layout: post
+title: "CocoaPods-使用教程(1) - Getting Started"
+sub_title: CocoaPods Guides 个人翻译
+date:   2017-04-01 20:18:16 +0800
+categories: 教程 翻译
+tags: CocoaPods 教程 翻译
+cover_image: "/img/CocoaPods.png"
+cover_filter: 95
+---
+
+第一次翻译英文文档，可能会有翻译的不好的地方，望读者包含，我会在一些括号里注明原文和自己的一些说明或理解
+
+# 什么是CocoaPods
+
+CocoaPods为你管理Xcode工程中各种库 (library，iOS开发者更喜欢叫框架？) 的依赖。
+
+
+
+
+
+你的工程的所有依赖 (dependencies) 都在一个叫做 `Podfile` 的文本文件中被声明(specified)。
+
+CocoaPods会通过获取各个库发布的源代码，并把它们整合到一个Xcode工作空间 (workspace) 中来解决库之间的依赖问题。
+
+
+
+
+
+最终目标是通过建立一个集中的生态系统来改善第三方开源库的曝光率 (discoverability，觉得翻译为“可发现性”有点怪怪的) 和参与度。
