@@ -5,7 +5,7 @@ sub_title: CocoaPods Guides 个人翻译
 date:   2017-04-01 20:18:16 +0800
 categories: 教程 翻译
 tags: CocoaPods 教程 翻译
-cover_image: "/img/CocoaPods.png"
+cover_image: "/img/cocoaPods.png"
 cover_filter: 95
 ---
 
