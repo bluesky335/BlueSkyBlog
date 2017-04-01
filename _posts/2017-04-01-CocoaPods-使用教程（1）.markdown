@@ -9,22 +9,64 @@ cover_image: "/img/cocoaPods.png"
 cover_filter: 95
 ---
 
-第一次翻译英文文档，可能会有翻译的不好的地方，望读者包含，我会在一些括号里注明原文和自己的一些说明或理解
+第一次翻译英文文档，可能会有翻译的不好的地方，望读者包含，我会在一些这样【】的括号里注明原文和自己的一些说明或理解
+
+[原文点这里](https://guides.cocoapods.org/using/getting-started.html)
 
 # 什么是CocoaPods
 
-CocoaPods为你管理Xcode工程中各种库 (library，iOS开发者更喜欢叫框架？) 的依赖。
+CocoaPods为你管理Xcode工程中各种库【library，iOS开发者更喜欢叫框架？】的依赖。  
+
+你的工程的所有依赖【dependencies】都在一个叫做 `Podfile` 的文本文件中被声明【specified】。
+CocoaPods会通过获取各个库发布的源代码，并把它们整合到一个Xcode工作空间【workspace】中来解决库之间的依赖问题。  
+
+最终目标是通过建立一个集中的生态系统来改善第三方开源库的曝光率【discoverability，觉得翻译为“可发现性”有点怪怪的】和参与度。  
 
 
 
+# 开始使用
 
+### 安装
 
-你的工程的所有依赖 (dependencies) 都在一个叫做 `Podfile` 的文本文件中被声明(specified)。
+CocoaPods是用Ruby构建的，使用macOS自带的默认Ruby即可以安装CocoaPods。
 
-CocoaPods会通过获取各个库发布的源代码，并把它们整合到一个Xcode工作空间 (workspace) 中来解决库之间的依赖问题。
+你可以使用Ruby Version manager（RVM，一个Ruby版本管理工具），但是，除非你知道自己正在做什么，否则我们还是建议你使用macOS自带的默认Ruby版本。
 
+当使用默认的Ruby来安装gems的时候需要你使用`sudo`（虽然这只是一个在gem安装时才会出现的问题）。【This is only an issue for the duration of the gem installation, though，意思是指只有在安装CocoaPods的时候才会使用到`sudo`】
 
+> ```shell
+> $ sudo gem install cocoapods
+> ```
 
+如果你在安装过程中遇到问题，请查看[这篇](https://guides.cocoapods.org/using/troubleshooting#installing-cocoapods)指南。
 
+### 不使用sudo的安装
 
-最终目标是通过建立一个集中的生态系统来改善第三方开源库的曝光率 (discoverability，觉得翻译为“可发现性”有点怪怪的) 和参与度。
+如果你不想在安装过程中授予RubyGems管理员权限，你可以通过给`gem install`增加`--user-install`参数 或 配置RubyGems的环境变量【environment】来告诉RubyGems将CocoaPods安装到你的用户目录下。
+
+> ```shell
+> export GEM_HOME=$HOME/.gem
+> export PATH=$GEM_HOME/bin:$PATH
+> ```
+
+### 更新CocoaPods
+
+> 重新安装一次CocoaPods即可更新【 [ ] 表示其中的内容是可选的】
+>
+> ```shell
+> $ [sudo] gem install cocoapods
+> ```
+
+> 或者安装一个预览版
+>
+> ```shell
+> $ [sudo] gem install cocoapods --pre
+> ```
+
+如果你最初安装CocoaPods的时候使用了`sudo`你在更新的时候也应该再次使用。
+
+之后，当有新版本可用的时候，你会在使用CocoaPods安装pods的时候看到一个提示信息`CocoaPods x.x.x is now available,please update`(cocoaPods x.x.x 现在已经可以使用了，请更新)
+
+#### 使用CocoaPods Fork
+
+有两个方式，使用 [Gemfile](https://guides.cocoapods.org/using/a-gemfile.html) （推荐）或者使用在讨论或实施阶段的 [development build](https://guides.cocoapods.org/using/unreleased-features) 【开发中的版本】
