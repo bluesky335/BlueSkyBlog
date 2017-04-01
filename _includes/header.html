@@ -15,6 +15,24 @@
 " >
 </div>
 <div id="header-cover" class="container-fluid ">
+    <div class="container-fluid header-cover-title">
+        <p>
+            <h1>
+                {% if page.title %}
+                    {{page.title}}
+                {% else %}
+                    {{site.title}}
+                {% endif %}
+            </h1>
+            <h4>
+                {% if page.sub_title %}
+                    {{page.sub_title}}
+                {% elsif site.sub_title %}
+                    {{site.sub_title}}
+                {% endif %}
+            </h4>
+        </p>
+    </div>
     <div class="header-title">
         <div class="row ">
             <div class="col-xs-12 col-sm-7 header-bar">
@@ -44,23 +62,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid header-cover-title">
-        <p>
-            <h1>
-                {% if page.title %}
-                    {{page.title}}
-                {% else %}
-                    {{site.title}}
-                {% endif %}
-            </h1>
-            <h4>
-                {% if page.sub_title %}
-                    {{page.sub_title}}
-                {% elsif site.sub_title %}
-                    {{site.sub_title}}
-                {% endif %}
-            </h4>
-        </p>
     </div>
 </div>

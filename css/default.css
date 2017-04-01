@@ -6,13 +6,16 @@ pre{
 }
 *:focus {outline: none;}
 .header-title {
+    z-index: 99999;
+    position:fixed;
+    width: 100%;
     transition: all 0.5s;
     -moz-transition: all 0.5s;
     /* Firefox 4 */
     -webkit-transition: all 0.5s;
     /* Safari 和 Chrome */
     -o-transition: all 0.5s;
-    height: 40px;
+    height: 50px;
     overflow: hidden;
 }
 

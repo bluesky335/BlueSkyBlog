@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CocoaPods-使用教程(1) - Getting Started"
-sub_title: CocoaPods Guides 个人翻译
+sub_title: CocoaPods Guides的个人翻译
 date:   2017-04-01 20:18:16 +0800
 categories: 教程 翻译
 tags: CocoaPods 教程 翻译
