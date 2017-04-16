@@ -3,7 +3,7 @@ title: Helow World !
 sub_title: <span style="color:#00ffd0;" >printf</span> ( <span style="color:#ffbc00;">" Helow World !\n " </span>) ;
 
 layout: default
-cover_image: "https://raw.githubusercontent.com/bluesky335/bluesky335.github.io/master/images/0.jpeg"
+cover_image: "https://coding.net/u/LiuWanLin/p/LiuWanLinWebSite/git/raw/master/images/0.jpeg"
 cover_filter: 90
 ---
 
@@ -21,6 +21,3 @@ int main(void){
 ```
 
 当控制台打印出这一串神奇的字符串时，计算机世界的大门便已经慢慢的在我们面前打开。
-
-
-

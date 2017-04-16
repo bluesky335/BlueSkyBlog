@@ -8,14 +8,8 @@ this is Liu WanLin's Blog.
 
 其中评论功能由 [多说](http://duoshuo.com/) 提供。
 
-欢迎访问[我的博客](https://github.com/bluesky335/BlueSkyBlog)：[blog.liuwanlin.tk](http://blog.liuwanlin.tk) 
+欢迎访问[我的博客](https://github.com/bluesky335/BlueSkyBlog)：[blog.liuwanlin.cn](http://blog.liuwanlin.cn) 
 
-欢迎访问[我的个人网站](https://github.com/BlueSky335/bluesky335.github.io)：[www.liuwanlin.tk](http://www.liuwanlin.tk) 
+欢迎访问[我的个人网站](https://github.com/BlueSky335/bluesky335.github.io)：[www.liuwanlin.cn](http://www.liuwanlin.cn)
 
 欢迎Fork和Star
-
-
-
-
-
-
