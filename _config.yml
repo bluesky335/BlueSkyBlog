@@ -23,7 +23,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 homepage: "http://www.liuwanlin.tk/"
-blog_homepage: "http://liuwanlin.coding.me/BlueSkyBlog/"
+blog_homepage: "http://blog.liuwanlin.cn/"
 
 
 github_address: "https://github.com/bluesky335/"
