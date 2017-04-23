@@ -4,11 +4,11 @@ title: "CocoaPods教程(2)-使用CocoaPods(Using CocoaPods)"
 sub_title: CocoaPods Guides的个人翻译
 date:   2017-04-23 14:42:16 +0800
 categories: 教程 翻译
-tags: CocoaPods 教程 翻译
+tags: CocoaPods教程 翻译
 cover_image: "/img/cocoaPods.png"
 cover_filter: 95
 ---
-
+这是对CocoaPods官方引导的翻译，英文不好，很多地方是通过查字典和Google翻译来完成的。
 第一次翻译英文文档，可能会有翻译的不好的地方，望读者包含，我会在一些这样【】的括号里注明原文和自己的一些说明或理解
 
 [原文点这里](https://guides.cocoapods.org/using/using-cocoapods.html)
@@ -161,4 +161,3 @@ CocoaPods和git子模块【git submodules】都试图解决非常类似的问题
 4、在你的Podfile中添加对已删除库的引用。
 
 5、执行 `pod install`。
-
