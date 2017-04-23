@@ -1,0 +1,164 @@
+---
+layout: post
+title: "CocoaPods教程(2)-使用CocoaPods(Using CocoaPods)"
+sub_title: CocoaPods Guides的个人翻译
+date:   2017-04-23 14:42:16 +0800
+categories: 教程 翻译
+tags: CocoaPods 教程 翻译
+cover_image: "/img/cocoaPods.png"
+cover_filter: 95
+---
+
+第一次翻译英文文档，可能会有翻译的不好的地方，望读者包含，我会在一些这样【】的括号里注明原文和自己的一些说明或理解
+
+[原文点这里](https://guides.cocoapods.org/using/using-cocoapods.html)
+
+# 添加Pods到Xcode工程
+
+### 在开始之前
+
+1、到[cocoapods.org](https://cocoapods.org/)或者[Specs](https://github.com/CocoaPods/Specs)仓库检查你将要使用的库是存在并且可以使用的。
+
+2、[安装CocoaPods](http://blog.liuwanlin.cn/%E6%95%99%E7%A8%8B/%E7%BF%BB%E8%AF%91/2017/04/01/CocoaPods-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-1.html) 到你的电脑上。
+
+# 安装
+
+- 在工程的根目录创建一个`Podfile` 文件,并且在文件中添加你的依赖库：
+
+  >```ruby
+  >target 'MyApp' do
+  >  pod 'AFNetworking', '~> 3.0'
+  >  pod 'FBSDKCoreKit', '~> 4.9'
+  >end
+  >```
+
+- 在命令行中到你的工程根目录执行`$ pod install`
+
+- 打开`App.xcworkspace` 并编译
+
+
+
+
+# 创建一个全新的使用CocoaPods的Xcode工程
+
+要创建一个全新的使用CocoaPods的Xcode工程，只需要以下几个简单的步骤：
+
+- 想平常一样创建一个新的Xcode工程。
+
+- 打开终端窗口【terminal】并且`$ cd `到你的工程目录。
+
+- 创建一个Podfile。可以执行`$ pod init`来完成。【也可以手动创建】
+
+- 打开Podfile。第一行应该指定支持的平台和版本号。
+
+  > platform ：ios, '9.0'
+
+- 你需要定义Xcode的target来关联CocoaPods才可以使用它们。例如如果你在编写一个iOS 应用，那么它应该是你的应用的名字，通过在Podfile中写入`target '$TARGET_NAME' do`并在几行之后以`end`结束来定义一个target。
+
+- 通过在target 块中【target block，指target '$TARGET_NAME' do之后到end 之前的区域】指定`pod '$PODNAME'` 来添加一个CocoaPod 库。
+
+  > ```ruby
+  > target 'MyApp' do  
+  >     pod 'ObjectiveSugar'
+  > end
+  > ```
+
+- 保存Podfile
+
+- 执行`pod install`
+
+- 打开创建好的`MyApp.xcworkspace`，这将是你以后每天编写应用使用的文件。
+
+# 集成一个已经存在的workspace
+
+集成一个已经存在的workspace 只需要在Podfile中加一行代码。
+
+在target块之外简单的指定`.xcworkspace`文件的名字就可以了：
+
+>```
+>workspace 'MyWorkspace'
+>```
+
+# 什么时候使用 `pod install` 或者 `pod update` ？
+
+许多人都在纠结什么时候应该用`pod install` 什么时候应该用`pod update`。特别是他们经常在需要用`pod install`的时候却使用了`pod update`。
+
+你可以[在这个详细的指南里](https://guides.cocoapods.org/using/pod-install-vs-update.html)找到关于什么时候使用哪个命令的详细说明。
+
+# 是否应该将Pods 目录添加到源代码管理中？【source control，或者翻译成版本控制更合适？】
+
+是否添加Pods目录到源代码管理取决于你，因为工作流程因项目而异。 我们建议你将Pods目录保留在源代管理中，不要将其添加到`.gitignore`中。 但最终这个决定取决于你：
+
+### 添加Pods目录到源代码管理的好处
+
+- 克隆仓库之后【Repo，**Repository**  的简写，仓库的意思】，即使电脑上没有安装CocoaPods，项目也可以立即生成和运行，没有必要执行`pod install`，并且不需要网络连接。
+- Pod组件(代码/库)始终可用，即使Pod源（例如Github）已经不可用【go down】。
+- 克隆仓库之后，Pod组件保证与原始安装中的组件完全相同。
+
+### 忽略Pods目录的好处
+
+- 源代码管理仓库将会更小，占用更小的空间。
+- 只要所有Pod的源（如Github）都可用，CocoaPods通常能够重新创建相同的安装。（从技术上讲，在Podfile中不使用提交SHA时【 when not using a commit SHA in the Podfile，这句翻译可能有点问题，不是很理解’a commit SHA in the Podfile‘ 】，无法保证运行`pod install`将获取并重新创建相同的工件。 尤其是在Podfile中使用zip文件时。）
+- 执行源代码管理操作时不会出现任何冲突，例如合并具有不同Pod版本的分支时。
+
+无论你是否添加`Pods`目录到源代码管理，`Podfile`和`Podfile.lock`应始终在版本控制中。
+
+# 什么是 `Podfile.lock`?
+
+该文件在首次运行pod安装后生成，并跟踪安装的每个Pod的版本。 例如，假设在Podfile中指定了以下依赖关系:
+
+> ```ruby
+> pod 'RestKit'
+> ```
+
+执行`pod install`将安装RestKit的当前版本中，导致产生一个Podfile.lock指示安装的确切版本（例如RestKit0.10.3）。多亏了`PodFile.lock` ，在一段时间之后在其它不同的机器上为之歌假设的项目运行`pod install` 时即使有新的版本可用，仍然会安装RestKit 0.10.3。CocoaPods将遵守Podfile.lock中的Pod版本，除非在Podfile中更新依赖关系，或者调用`pod update`（将导致生成新的Podfile.lock）。
+
+这样CocoaPods避免了由依赖关系的意外更改引起的头痛。【比如Pod升级到新版方法名称变更或者进行了大量更改却没有向下兼容】。
+
+Google有一个很棒的视频，说明它是如何工作的["CocoaPods and Lockfiles (Route 85)"](https://www.youtube.com/watch?v=H-zK1mEwTe0).【自备梯子】
+
+# 幕后发生了什么？
+
+在Xcode中通过直接引用 [ruby 源](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L61-L65)
+
+1、创建或者更新一个[workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L82)。
+
+2、如果需要，[添加你的工程到workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator.rb#L88-L94)。
+
+3、如果需要，添加 [CocoaPods static library project 到 workspace](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/target_installer.rb#L40-L61) 。
+
+4、添加 libPods.a 到: [targets => build phases => link with libraries](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L385-L393)。
+
+5、添加 CocoaPods [Xcode configuration file](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator/target_integrator.rb#L112) 到你的app的工程。
+
+6、将你的应用程序的[target configurations](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/generator/xcconfig/aggregate_xcconfig.rb#L46-L73)改为基于CocoaPods的。
+
+7、添加构建阶段以将资源从你安装的[任何pods复制到](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer/user_project_integrator/target_integrator.rb#L145) 你的app bundle。即,所有其他构建
+
+​      阶段之后的“脚本构建阶段”如下：
+
+- Shell: `/bin/sh`
+
+
+- Script: `${SRCROOT}/Pods/PodsResources.sh`
+
+请注意，如果CocoaPods静态库已经在您的工程中，则会跳过第3步。 这主要是基于Jonah Williams在静态库上的工作。
+
+# Pods 和子模块
+
+CocoaPods和git子模块【git submodules】都试图解决非常类似的问题。 两者都努力简化在项目中包含第三方代码的过程。 子模块链接到该项目的特定提交，而CocoaPod绑定到版本化的开发人员版本。【Submodules link to a specific commit of that project, while a CocoaPod is tied to a versioned developer release. 这句话翻译的不是很好】。
+
+# 从子模块转换到CocoaPods
+
+在决定完全切换到CocoaPods之前，请确保您当前正在使用的库都是可用的。记录当前正在使用的库的版本也是一个好主意，以便你可以将CocoaPods设置为使用相同版本的库。逐步执行此操作也是一个好主意。一个依赖一个依赖的来而不是一次性做个大变动。
+
+1、如果你还没有安装CocoaPods，请先安装CocoaPods。
+
+2、创建 [Podfile](https://guides.cocoapods.org/using/the-podfile.html)。
+
+3、[删除子模块引用](http://davidwalsh.name/git-remove-submodule)。
+
+4、在你的Podfile中添加对已删除库的引用。
+
+5、执行 `pod install`。
+
