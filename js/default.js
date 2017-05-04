@@ -21,6 +21,16 @@ $(document).ready(function() {
         return false;
     });
 
+    $("#bsk-pay").mouseenter(function(event) {
+            $("#bsk-pay-code-img").css({"top":$(this).offset().top-440,"display":"block","opacity":0});
+        $("#bsk-pay-code-img").animate({"top":$(this).offset().top-420,"opacity":1}, 200);
+    });
+    $("#bsk-pay").mouseleave(function(event) {
+            $("#bsk-pay-code-img").stop().animate({"top":$(this).offset().top-440,"opacity":0}, 200,function (){
+                $("#bsk-pay-code-img").css({"top":$(this).offset().top-440,"display":"none","opacity":0});
+            });
+    });
+
     $(window).scroll(function(event) {
         if (!menuisopen) {
             var alpha = $(document).scrollTop()/($(".bgdiv").height()-50);
@@ -86,7 +96,7 @@ function openMenu() {
             }, 600);
         }else {
             $(".header-title").css({
-                "height": 170
+                "height": 200
             }, 600);
         }
 

@@ -82,7 +82,7 @@ pre{
     color: rgb(255, 255, 255);
     line-height: 40px;
     text-align: left;
-    height: 40px;
+    height: 50px;
 }
 
 .menuitem-l {
@@ -100,7 +100,7 @@ pre{
     text-align: center;
     opacity: 1;
     /*background-color: rgb(57, 150, 226);*/
-    height: 40px;
+    height: 50px;
 }
 
 .bgdiv {
@@ -366,4 +366,26 @@ border-radius: 10px;
 .bsk-left-block{
     display: block;
     float: left;
+}
+
+#bsk-pay{
+    line-height: 30px;
+    padding:10px;
+    color:#2abf8c;
+    font-size:20px;
+}
+#bsk-pay a:hover{
+    text-decoration: none;
+}
+#bsk-pay-code-img {
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    display: none;
+    position: absolute;
+    opacity: 1;
+    width: 300px;
+    height: 389px;
+    top: 100px;
+    left: 50%;
+    margin-left: -150px;
 }
