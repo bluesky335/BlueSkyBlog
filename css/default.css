@@ -286,6 +286,7 @@ pre{
     box-shadow: 0 0 10px #ddd;
 }
 .bsk-logo{
+    background-color: #999;
     margin-left:auto;
     margin-right: auto;
     width: 120px;
