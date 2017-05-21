@@ -28,12 +28,12 @@ $(document).ready(function() {
     });
 
     $("#bsk-pay").mouseenter(function(event) {
-            $("#bsk-pay-code-img").css({"top":$(this).offset().top-440,"display":"block","opacity":0});
-        $("#bsk-pay-code-img").animate({"top":$(this).offset().top-420,"opacity":1}, 200);
+            $("#bsk-pay-code-img").css({"top":$(this).offset().top-870,"display":"block","opacity":0});
+        $("#bsk-pay-code-img").animate({"top":$(this).offset().top-850,"opacity":1}, 200);
     });
     $("#bsk-pay").mouseleave(function(event) {
-            $("#bsk-pay-code-img").stop().animate({"top":$(this).offset().top-440,"opacity":0}, 200,function (){
-                $("#bsk-pay-code-img").css({"top":$(this).offset().top-440,"display":"none","opacity":0});
+            $("#bsk-pay-code-img").stop().animate({"top":$(this).offset().top-870,"opacity":0}, 200,function (){
+                $("#bsk-pay-code-img").css({"top":$(this).offset().top-870,"display":"none","opacity":0});
             });
     });
 
