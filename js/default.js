@@ -1,10 +1,16 @@
+
 var menuisopen = false; //菜单的打开状态
 var blurTimer = null;
 var blur = 80;
 var targetB = 0;
 var winWidth = 0;
+var winHeight = 0;
 var menuAlpha = 0.6;
+
 $(document).ready(function() {
+
+        winWidth = $(window).width();
+        winHeight = $(window).height();
     $("body").click(function(event) {
         if(menuisopen) {
             openMenu(); //如果菜单没关闭，则关闭菜单
@@ -22,12 +28,12 @@ $(document).ready(function() {
     });
 
     $("#bsk-pay").mouseenter(function(event) {
-            $("#bsk-pay-code-img").css({"top":$(this).offset().top-440,"display":"block","opacity":0});
-        $("#bsk-pay-code-img").animate({"top":$(this).offset().top-420,"opacity":1}, 200);
+            $("#bsk-pay-code-img").css({"top":$(this).offset().top-870,"display":"block","opacity":0});
+        $("#bsk-pay-code-img").animate({"top":$(this).offset().top-850,"opacity":1}, 200);
     });
     $("#bsk-pay").mouseleave(function(event) {
-            $("#bsk-pay-code-img").stop().animate({"top":$(this).offset().top-440,"opacity":0}, 200,function (){
-                $("#bsk-pay-code-img").css({"top":$(this).offset().top-440,"display":"none","opacity":0});
+            $("#bsk-pay-code-img").stop().animate({"top":$(this).offset().top-870,"opacity":0}, 200,function (){
+                $("#bsk-pay-code-img").css({"top":$(this).offset().top-870,"display":"none","opacity":0});
             });
     });
 
@@ -38,7 +44,13 @@ $(document).ready(function() {
             $(".header-title").css('background-color', 'rgba(0,0,0,'+alpha+')');
         }
     });
-
+    $(document).mousemove(function(e){
+           var ypercent = (e.pageX- winWidth/2)/(winWidth/2);
+           var xpercent = (e.pageY-winHeight/2)/(winHeight/2)*-1;
+           $("#transform3d").css('transform',"perspective(600px) rotateY("+((3*ypercent)*(1))+"deg) rotateX("+((3*xpercent)*(1))+"deg)");
+           $("#transform3d").css('webkit-transform',"perspective(600px) rotateY("+((3*ypercent)*(1))+"deg) rotateX("+((3*xpercent)*(1))+"deg)");
+           $("#transform3d").css('box-shadow',(3*ypercent*(-1))+"px "+(3*xpercent*(1))+"px 20px rgba(0,0,0,0.5)");
+       });
     $(window).resize(function() {
 
         winWidth = $(window).width();
@@ -110,7 +122,6 @@ function openMenu() {
         alpha=alpha>menuAlpha?menuAlpha:alpha;
         $(".header-title").css('background-color', 'rgba(0,0,0,'+alpha+')');
 
-
         if (winWidth<=410) {
             $(".header-cover-title").css({
                 'bottom': 15
@@ -135,7 +146,6 @@ function openMenu() {
 }
 
 function setBlur(b) {
-
     // $(".bgdiv").css("filter", "brightness(" + b + "%)");
     // $(".bgdiv").css("-webkit-filter", "brightness(" + b + "%)");
     // $(".bgdiv").css("-moz-filter", "brightness(" + b + "%)");

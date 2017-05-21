@@ -4,6 +4,20 @@ main{
 pre{
     background-color: #fefbec;
 }
+
+canvas {
+  z-index: 0;
+  position: absolute;
+  display: block;
+}
+
+/* ---- particles.js container ---- */
+
+#yun-tie-sdk-wrap{
+        border-radius: 10px;
+        box-shadow: 0 0 3px rgb(200,200,200);
+}
+
 *:focus {outline: none;}
 .header-title {
     z-index: 99999;
@@ -280,6 +294,7 @@ pre{
     background-color:rgb(184, 184, 184);
 }
 .bsk-logoContainer{
+    margin-top: 40px;
     border-radius: 10px;
     padding-top: 30px;
     padding-bottom: 30px;

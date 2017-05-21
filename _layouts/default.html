@@ -15,17 +15,19 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
-
-    <body>
-        <!--header-begin -->
-        {% include header.html %}
-        <!-- header-end -->
-        <main class="container">
-        {{ content }}
-        </main>
-        <!--footer-brgin -->
-        {% include footer.html %}
-        <!-- footer-end -->
+    <body >
+        <div class="row" >
+            <div class="col-xs-12">
+                <!--header-begin -->
+                {% include header.html %}
+                <!-- header-end -->
+                <main class="container">
+                        {{ content }}
+                </main>
+                <!--footer-brgin -->
+                {% include footer.html %}
+                <!-- footer-end -->
+            </div>
+        </div>
     </body>
-
 </html>
