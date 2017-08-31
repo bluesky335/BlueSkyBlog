@@ -62,18 +62,17 @@ cover_color:
 
  </div>
 <!-- 评论 BEGIN -->
-<!-- 网易云跟帖 -->
-<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: document.location.href,
-    sourceId: "",
-    productKey: "78923860403d453283f85548115ae712",
-    target: "cloud-tie-wrapper"
-  };
+<!-- 畅言 BEGIN-->
+<!--PC版-->
+<div id="SOHUCS" ></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyt1dnJVT',
+conf: 'prod_47784fef33d031b5384e1b9066325a65'
+});
 </script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-
+<!-- 畅言 ENF -->
 <!-- 友言评论 BEGIN -->
 <!-- <div id="uyan_frame"></div>
 <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2128557"></script> -->
