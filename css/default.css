@@ -405,14 +405,3 @@ border-radius: 10px;
     left: 50%;
     margin-left: -150px;
 }
-
-
-/* 畅言 */
-
-.cmt-box-title-right{
-    color:#fff;
-}
-.cmt-box-title-w{
-    background-color:#6495ed;
-    padding-top:40px;
-}
