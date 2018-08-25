@@ -1,3 +1,14 @@
+---
+layout: post
+title: "记一次Xcode 打包上传的采坑"
+sub_title: (ERROR ITMS-90432: "Invalid Swift Support.)
+date:   2018-08-25 23:24:16 +0800
+categories: 踩坑
+tags: "ERROR ITMS-90432" "Invalid Swift Support"
+cover_image: "/img/bili.jpg"
+cover_filter: 95
+---
+
 # 记一次Xcode 打包上传的采坑(ERROR ITMS-90432: "Invalid Swift Support.)
 
 在App开发完成之后,我按照正常的流程开始打包上传App到App Store,一切都很顺利,但是在上传那一步失败了,
