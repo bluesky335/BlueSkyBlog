@@ -39,11 +39,13 @@ paginate_path: "page:num"
 markdown: kramdown
 highlighter: rouge
 #theme: minima
-gems:
-  - jekyll-feed
+# gems:
+#   - jekyll-paginate
+#   - jekyll-feed
 
 plugins:
   - jekyll-paginate
+  - jekyll-feed
 
 exclude:
   - Gemfile
