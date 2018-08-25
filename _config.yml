@@ -33,12 +33,18 @@ csdn_address: "http://blog.csdn.net/l947818238"
 git_os_china_address: "http://git.oschina.net/BlueSky335"
 
 paginate: 5
+paginate_path: "page:num"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
 #theme: minima
 gems:
   - jekyll-feed
+
+plugins:
+  - jekyll-paginate
+
 exclude:
   - Gemfile
   - Gemfile.lock

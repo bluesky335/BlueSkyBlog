@@ -1,0 +1,67 @@
+# 记一次Xcode 打包上传的采坑(ERROR ITMS-90432: "Invalid Swift Support.)
+
+在App开发完成之后,我按照正常的流程开始打包上传App到App Store,一切都很顺利,但是在上传那一步失败了,
+
+错误信息如下:
+
+>```
+>ERROR ITMS-90432: "Invalid Swift Support. The file 
+>LinkGame.app/Frameworks/LGNewFriendsController.swift,
+>LinkGame.app/Frameworks/LGAddNewHandler.swift,
+>LinkGame.app/Frameworks/LGUserSearchHandler.swift,
+>LinkGame.app/Frameworks/LGFriendsListController.swift,
+>LinkGame.app/Frameworks/LGUserInfoHandler.swift,
+>LinkGame.app/Frameworks/LGSendNewFriendRequestHandler.swift,
+>LinkGame.app/Frameworks/LGUserSearchController.swift
+>
+>doesn’t have the correct file type for this location. Ensure you’re using the correct file,
+>rebuild your app using the current public (GM) version of Xcode, and resubmit it."
+>```
+>
+
+
+
+这是一个我以前从没遇到过的问题, google错误代码关键字 `ERROR ITMS-90432: "Invalid Swift Support.`
+
+找到了一些回答,但他们遇到的似乎都是在集成一些第三方的framework时遇到的,而我的这个错误却指向了自己编写的文件.
+
+而工程在debug时在真机和模拟器上都能正常运行,重新审视错误提示,其中提到: `Ensure you’re using the correct file,
+rebuild your app using the current public (GM) version of Xcode, and resubmit it.`
+
+喵喵喵   (O_o)??
+
+我用的不是正式版的Xcode吗?吓得我赶紧打开Xcode的关于界面, Xcode 9.4.1啊没毛病.
+
+仔细回想,之前Xcode10发布Beta版之后好像下载下来尝鲜过一次,难道是因为它? But why?
+
+尝试Clean整个工程重新打包上传,失败,同样的错误.
+
+Clean并重启Xcode,重新打包上传,失败,同样的错误.
+
+导出为ipa用ApplicationLoader上传,失败,同样的错误.
+
+(╯°□°）╯︵┻━┻ 
+
+等等! `LinkGame.app/Frameworks/LGNewFriendsController.swift`    (⊙ˍ⊙)
+
+嗯????
+
+打包编译之后的app里怎么会有swift文件,它们不应该被编译成可执行文件了吗?
+
+解压之前导出的ipa,果然在其中找到了报错的几个文件,居然原封不动的打包进来了!!
+
+实在没有办法,决定乱试一通.
+
+将报错的文件在工程中删除,创建同名文件,并将之前文件中的代码原封不动的复制进来.
+
+打包,上传,等待进度条,向程序员之神诚心祈祷,Duang!成功了. But Why?
+
+
+
+## 总结
+
+虽然最后莫名其妙的解决了问题,但仍然未知其错误的原因,我只是删除并重新创建了一次文件而已,而且之前和之后的文件内容是复制粘贴的,是完全一致的.但却呈现出两种不同的结果,难道.swift文件并不是一种纯粹的文本文件?
+
+
+
+最大的教训是,Xcode出新的体验版本了,可以去下载下来尝鲜,但是!! 绝对不要把它用在正式的工作项目中去, 因为你不知道它会导致什么神奇的错误.
